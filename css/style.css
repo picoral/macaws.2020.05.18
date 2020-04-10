@@ -1,0 +1,39 @@
+
+body {
+margin: 0px;
+padding: 0px;
+font-family:Arial, Helvetica, sans-serif;
+font-size: 90%;
+color:#575757;
+}
+
+.previous {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 50px;
+  height: 100%;
+  background-color: #FFFFFF;
+}
+
+.main {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 50px;
+  left: 50px;
+  height: 100%;
+  background-color: #FFFFFF;
+}
+
+
+
+.next {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 50px;
+  height: 100%;
+  right: 0px;
+  background-color: #FFFFFF;
+}
