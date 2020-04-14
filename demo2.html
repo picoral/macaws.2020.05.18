@@ -20,48 +20,107 @@
 
 <div id="main" class="main">
 
-  <h1>Portuguese -- Indefinite Pronouns</h1>
-  <h2>Learning Goals</h2>
+  <p><span style="font-size: 24pt; font-family: verdana, sans-serif;"><strong>Future Subjunctive</strong></span></p>
+  <p><span style="font-size: 14pt; font-family: verdana, sans-serif;"><strong>Level:</strong> Beginner's Portuguese</span></p>
 
-  <p>By the end of this task, students will be able to:</p>
-  <ul>
-    <li>Understand ...</li>
-  </ul>
+  <p><span style="font-size: 14pt;">Activity created to integrate PORT 305 (Portuguese for Spanish speakers) Week 11, tab "When I have money" (Quando eu tiver dinheiro), future subjunctive.</span></p>
+<p><strong><span style="font-size: 14pt;">Learning Outcomes:&nbsp;</span></strong></p>
+<ul>
+<li><span style="font-size: 14pt;">Practice conjugations of the verb "querer" in future subjunctive;</span></li>
+<li><span style="font-size: 14pt;">Associate forms of future subjunctive with its function in trip reports;</span></li>
+<li><span style="font-size: 14pt;">Use future subjunctive with multiple verbs to recommend touristic activities.</span><span style="font-size: 14pt;"></span><span style="font-size: 14pt;"></span></li>
+</ul>
+<p><span style="font-size: 14pt;">Based on <a href="https://docs.google.com/document/d/1cnFOh46O9nFnrXz8hJ-iiRH6BOLvP0IAdZ8mDxVnLx0/edit#">https://docs.google.com/document/d/1cnFOh46O9nFnrXz8hJ-iiRH6BOLvP0IAdZ8mDxVnLx0/edit#</a>&nbsp;</span></p>
+<p><span style="font-size: 14pt;"></span></p>
+<p><span style="font-size: 14pt;">Leias as linhas abaixo para responder as perguntas no Qualtrics:</span></p>
+<p></p>
+<p><iframe src="https://macaws-api.corporaproject.org/corpus/excerpts?search=quiser&amp;op=or&amp;method=word&amp;offset=0&amp;draft=Final&amp;assignment_topic=Trip" title="MACAWS Search Excerpts" style="width: 100%; height: 300px;"></iframe></p>
+<p><iframe src="https://uarizona.co1.qualtrics.com/jfe/form/SV_cBiMt7bUyzGmlet" height="1200px" width="100%"></iframe></p>
+<p></p>
+<p>
+<script type="text/javascript">
+      	var certas = [["quiserem"], ["quiser"], ["quisermos"], ["quiser"], ["quiserem"], ["usem"]];
+
+      	function corrija(){
+      		var respostas1 = new Array();
+      		var respostas2 = new Array();
+      		var formulario = document.getElementById("myForm");
+      		var quantos = formulario.elements.length - 1;
+      		var e = document.getElementById("resultado");
+      		var corretas = 0;
+      		var comprimento = 0;
+      		var achouCerta = false;
+
+      		e.innerHTML = "";
+
+      		for (var i = 0; i < quantos; i++) {
+      			comprimento = certas[i].length;
+      			var valor = formulario.elements[i].value.toLowerCase();
+      			valor = valor.replace(/(\w)\s+(\w)/g, '$1_$2');
+      			valor = valor.replace(/\s+/g, '');
+      			respostas2.push(valor);
+      			achouCerta = false;
+
+      			for (var j = 0; j < comprimento; j++) {
+      				if (!achouCerta) {
+      					if (valor == certas[i][j]){
+      						corretas = corretas +1;
+      						achouCerta = true;
+      					}
+      				}
+      			}
+
+      			respostas1.push(achouCerta);
+      		}
+
+      		for (var i = 0; i < quantos; i++) {
+      			var pai = formulario.elements[i].parentNode;
+      			if (respostas1[i] == true) {
+      				formulario.elements[i].style.backgroundColor="#90EE90";
+      				formulario.elements[i].disabled = true;
+      			}
+      			else {
+      				formulario.elements[i].style.backgroundColor="#FFC0CB"
+      			}
+      		}
 
 
-  <h3>Analysis 1: Todo(s)</h3>
+      		for (var i = 0; i < quantos; i++) {
+      			formulario.elements[i].value = respostas2[i].replace(/_/g, ' ');
+      		}
 
-  <p>1. Observe the concordance lines below. What is the meaning of the word todos in these sentences?</p>
+      		e.innerHTML = "Correct Answers: " + corretas + ". Total: " + quantos + ". Score: " + ((corretas/quantos).toPrecision(2)*100) + "%";
+      	}
 
-  <iframe src="https://macaws-api.corporaproject.org/corpus/excerpts?search=todos&op=or&method=word&offset=0" title="MACAWS Search Excerpts" style="width:100%;height:300px;"></iframe>
+      	</script>
+</p>
 
-  <p>2. Look for todo mundo and lines that have todos os. What do these lines tell us about how we use this word?</p>
 
-  <iframe src="https://macaws-api.corporaproject.org/corpus/excerpts?search=%22todo%20mundo%22&op=or&method=word&offset=0" title="MACAWS Search Excerpts" style="width:100%;height:300px;"></iframe>
 
-  <iframe src="https://macaws-api.corporaproject.org/corpus/excerpts?search=%22todos%20os%22&op=or&method=word&offset=0" title="MACAWS Search Excerpts" style="width:100%;height:300px;"></iframe>
+<h2>Todas as frases est&atilde;o conjugadas com o pronome voc&ecirc; porque s&atilde;o relatos de viagem direcionadas a um leitor. Mas o que acontece se mudarmos o pronome?</h2>
+<form id="myForm">
+<div></div>
+<div><span style="font-size: 14pt;">Conjugue o verbo QUERER para o PRONOME em negrito no futuro do subjuntivo:</span></div>
+<div></div>
+<div><span style="font-size: 14pt;">1. Em Quito, <span style="text-decoration: underline;">se quiser visitar</span> um restaurante muito bom, recomendo Caf&eacute; Mosaica.</span></div>
+<div><span style="font-size: 14pt;">Em Quito, se <strong>elas</strong> <input type="text" /> visitar um restaurante muito bom, recomendo Caf&eacute; Mosaica.</span></div>
+<div></div>
+<div><span style="font-size: 14pt;">2.&nbsp;<span style="text-decoration: underline;">Se voc&ecirc; quiser salvar</span> dinheiro, fique em albergue para hospedagem.</span></div>
+<div><span style="font-size: 14pt;">Se <strong>ele</strong> <input type="text" /> salvar dinheiro, fique em albergue para hospedagem.</span></div>
+<div></div>
+<div><span style="font-size: 14pt;">3.&nbsp;H&aacute; tamb&eacute;m uma s&eacute;rie de hot&eacute;is &agrave; beira-mar, <span style="text-decoration: underline;">se voc&ecirc; quiser ficar</span> por perto.</span></div>
+<div><span style="font-size: 14pt;">H&aacute; tamb&eacute;m uma s&eacute;rie de hot&eacute;is &agrave; beira-mar, se <strong>n&oacute;s</strong> <input type="text" /> ficar por perto.</span></div>
+<div><span style="font-size: 14pt;">H&aacute; tamb&eacute;m uma s&eacute;rie de hot&eacute;is &agrave; beira-mar se<strong> a gente</strong> <input type="text" /> ficar por perto.</span></div>
+<div></div>
+<div><span style="font-size: 14pt;">4. <span style="text-decoration: underline;">Se voc&ecirc; quiser</span> boa hospedagem, usa Airbnb.</span></div>
+<div><span style="font-size: 14pt;">Se <strong>voc&ecirc;s</strong> <input type="text" /> boa hospedagem, <input type="text" /> Airbnb.</span></div>
+<div></div>
+<div id="resultado"></div>
+<br /><input type="button" value="Check Your Answers" onclick="corrija()" /></form>
+</body>
+      </html>
 
-  <p>3. What is the explanation for the use of todos? Observe the articles and nouns that come after todos to answer this question.</p>
-
-  <h3>Analysis 2: Toda(s)</h3>
-
-  <p>What happens if the words that follow  the determiner are feminine?</p>
-  <p>4. Observe the concordance lines 2:</p>
-
-  <iframe src="https://macaws-api.corporaproject.org/corpus/excerpts?search=todas&op=or&method=word&offset=0" title="MACAWS Search Excerpts" style="width:100%"></iframe>
-
-  <p>5. Change the plural nouns to singular form and make the corresponding agreement with the determiner toda. How does the meaning change?</p>
-  <p>6. Is it possible to modify all those sentences to plural form? Why?</p>
-
-  <h3>SYSTEMATIZING KNOWLEDGE</h3>
-
-  <p>Complete the table below with usage patterns that you found in the sentences analyzed previously. Add an example from the corpus in the table, and also create a new sentence.</p>
-
-  <h3>INCORPORATING TUDO</h3>
-  <p>In the table you also have a row for the pronoun tudo, which follows a different pattern than the other determiners. What is the difference? Observe the concordance lines 4 to answer this question. Then, complete the table with information about tudo.</p>
-
-  <iframe src="https://macaws-api.corporaproject.org/corpus/excerpts?search=tudo&op=or&method=word&offset=0" title="MACAWS Search Excerpts" style="width:100%"></iframe>
-
+<p><iframe src="https://docs.google.com/document/d/1SftKOitjsEJCGWeq1xNivjcdBxvIku7bMMKg_5iziuo/edit?usp=sharing" height="1500px" width="1200px"></iframe></p>
 </div>
 
 <div id="next" class="next">
