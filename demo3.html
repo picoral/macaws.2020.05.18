@@ -57,97 +57,99 @@
 
 
 
-  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-  <html>
+                   <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+        <html>
 
-  	<head>
-  	<meta charset="UTF-8">
-  		<title></title>
-
-
-  	<script>
-  	var certas = new Array();
-
-  	function preenchaArray(){
-  certas.push(["по-русски"]);certas.push(["по-испански"]);certas.push(["по-китайски"]);certas.push(["арабскийязык"]);certas.push(["португальскийязык"]);
-  	}
-
-  	function corrija(){
-  		var respostas1 = new Array();
-  		var respostas2 = new Array();
-  		var formulario = document.getElementById("myForm");
-  		var quantos = formulario.elements.length - 1;
-  		var e = document.getElementById("resultado");
-  		var corretas = 0;
-  		var comprimento = 0;
-  		var achouCerta = false;
-
-  		e.innerHTML = "";
-
-  		for (var i = 0; i < quantos; i++) {
-  			comprimento = certas[i].length;
-  			var valor = formulario.elements[i].value.toLowerCase();
-  			valor = valor.replace(/(\w)\s+(\w)/g, '$1_$2');
-  			valor = valor.replace(/\s+/g, '');
-  			respostas2.push(valor);
-  			achouCerta = false;
-
-  			for (var j = 0; j < comprimento; j++) {
-  				if (!achouCerta) {
-  					if (valor == certas[i][j]){
-  						corretas = corretas +1;
-  						achouCerta = true;
-  					}
-  				}
-  			}
-
-  			respostas1.push(achouCerta);
-  		}
-
-  		for (var i = 0; i < quantos; i++) {
-  			var pai = formulario.elements[i].parentNode;
-  			if (respostas1[i] == true) {
-  				formulario.elements[i].style.backgroundColor="#90EE90";
-  				formulario.elements[i].disabled = true;
-  				document.getElementById(i).src = "correto.png";
-  			}
-  			else {
-  				formulario.elements[i].style.backgroundColor="#FFC0CB"
-  				document.getElementById(i).src = "errado.png";
-  			}
-  		}
+        	<head>
+        	<meta charset="UTF-8">
+        		<title></title>
 
 
-  		for (var i = 0; i < quantos; i++) {
-  			formulario.elements[i].value = respostas2[i].replace(/_/g, ' ');
-  		}
+        	<script type="text/javascript">
+        	var certas = [["по-испански"], ["русский"], ["английский"], ["испанский"], ["по-русски"], ["русский"]];
 
-  		e.innerHTML = "Corretas: " + corretas + ". Out of: " + quantos + ". Percentage: " + ((corretas/quantos).toPrecision(2)*100) + "%";
-  	}
+        	function corrija(){
+        		var respostas1 = new Array();
+        		var respostas2 = new Array();
+        		var formulario = document.getElementById("myForm");
+        		var quantos = formulario.elements.length - 1;
+        		var e = document.getElementById("resultado");
+        		var corretas = 0;
+        		var comprimento = 0;
+        		var achouCerta = false;
 
-  	</script>
-  	</head>
-  	<body onload="preenchaArray()">
+        		e.innerHTML = "";
 
-  	<h2>
-  Fill in the blanks with the correct verb.
-  	</h2>
-  	<form id="myForm">
+        		for (var i = 0; i < quantos; i++) {
+        			comprimento = certas[i].length;
+        			var valor = formulario.elements[i].value.toLowerCase();
+        			valor = valor.replace(/(\w)\s+(\w)/g, '$1_$2');
+        			valor = valor.replace(/\s+/g, '');
+        			respostas2.push(valor);
+        			achouCerta = false;
 
-  <div></div>
-  <br><div></div>
-  <br><div>1. Я хорошо  <input type="text"><img id="0" src="images/nada.png" width="20">  (по-русски/русский язык) понимаю. </div>
-  <div>2. Мои родители говорят  <input type="text"><img id="1" src="images/nada.png" width="20">  (по-испански/испанский язык) дома. </div>
-  <div>3. Я знаю, как говорить  <input type="text"><img id="2" src="images/nada.png" width="20">  (по-китайски/китайский язык). </div>
-  <div>4. Моя подруга изучает  <input type="text"><img id="3" src="images/nada.png" width="20">  (по-арабски/арабский язык) в университете. </div>
-  <div>5. Мой брат хочет учить  <input type="text"><img id="4" src="images/nada.png" width="20">  (по-португальски/португальский язык), потому что он красивый. </div>
+        			for (var j = 0; j < comprimento; j++) {
+        				if (!achouCerta) {
+        					if (valor == certas[i][j]){
+        						corretas = corretas +1;
+        						achouCerta = true;
+        					}
+        				}
+        			}
 
-  	<div id="resultado"></div>
-  	<br><input type=button value="Check your answers" onclick="corrija()">
-  	</form>
+        			respostas1.push(achouCerta);
+        		}
 
-  	</body>
-  </html>
+        		for (var i = 0; i < quantos; i++) {
+        			var pai = formulario.elements[i].parentNode;
+        			if (respostas1[i] == true) {
+        				formulario.elements[i].style.backgroundColor="#90EE90";
+        				formulario.elements[i].disabled = true;
+        			}
+        			else {
+        				formulario.elements[i].style.backgroundColor="#FFC0CB"
+        			}
+        		}
+
+
+        		for (var i = 0; i < quantos; i++) {
+        			formulario.elements[i].value = respostas2[i].replace(/_/g, ' ');
+        		}
+
+        		e.innerHTML = "Correct Answers: " + corretas + ". Total: " + quantos + ". Score: " + ((corretas/quantos).toPrecision(2)*100) + "%";
+        	}
+
+        	</script>
+        	</head>
+        	<body>
+
+        	<h2>
+  Fill in the blank with the most appropriate answer from the brackets.
+        	</h2>
+        	<form id="myForm">
+
+            <div></div>
+            <div><p><span style="font-size: 14pt; font-family: verdana, sans-serif;">1. Я читаю и пишу по-русски плохо, а <input type="text"> (испанский / по-испански) хорошо. </span></p></div>
+            <div><p><span style="font-size: 14pt; font-family: verdana, sans-serif;">2. Я изучаю <input type="text"> (русский / по-русски), потому что мой папа говорит по-русски. </span></p></div>
+            <div><p><span style="font-size: 14pt; font-family: verdana, sans-serif;">3. Я знаю <input type="text"> (английский / по-английски) язык, испанский язык и русский язык. </span></p></div>
+            <div><p><span style="font-size: 14pt; font-family: verdana, sans-serif;">4. Раньше я изучал <input type="text"> (испанский / по-итальянски), а сейчас я изучаю русский язык. </span></p></div>
+            <div><p><span style="font-size: 14pt; font-family: verdana, sans-serif;">5. Они любят русский язык, хотят читать литературу <input type="text"> (по-русски / русская).</span></p> </div>
+            <div><p><span style="font-size: 14pt; font-family: verdana, sans-serif;">6. Я изучаю <input type="text"> (русский / испанскую), физиологию, химию, математику и медицину.</span></p> </div>
+            <div></div>
+
+        	<div id="resultado"></div>
+        	<br><input type=button value="Check Your Answers" onclick="corrija()">
+        	</form>
+
+          </body>
+        </html>
+
+
+
+
+
+
+
 
 
   <html>
